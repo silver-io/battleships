@@ -4,8 +4,8 @@ describe Board do
 	
 	let(:board) { Board.new }
 
-	xit "is a hash with 100 items" do
-
+	it "is a hash with 100 items" do
+			expect(board.count).to eq 100
 	end
 
 end

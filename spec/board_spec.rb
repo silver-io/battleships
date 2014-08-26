@@ -3,7 +3,6 @@ require 'board'
 describe Board do
 	
 	let(:board) { Board.new }
-	let(:cell)  { double :Cell}
 
 	it "has 100 items" do
 			expect(board.count).to eq 100

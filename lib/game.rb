@@ -1,35 +1,21 @@
 require 'cell'
 require 'board'
+require 'user'
 
 class Game
 
-	SHIP_TYPES = {:tiny => 1,
-			:patrol_boat => 2,
-			:destroyer => 3,
-			:submarine => 3,
-			:Battleship => 4,
-			:aircraft_carrier => 5}
-
 	def initialize
-		@board = Board.new
+		@player1 = User.new
+		@player2 = User.new
 	end
 
-	def board
-		@board
+	def player1
+		@player1
 	end
 
-	def hit(cell)
-		# board -. cell number -. cel.hit = true
-		@board[cell].hit!
+	def player2
+		@player2
 	end
 
 
-	def insert_ship_into_cell(ship, coordinate)
-		@board[coordinate].set_ship(ship)
-	end
-
-	def place_ship(ship, coord, axis)
-		number = SHIP_TYPES[ship]
-		
-	end
 end

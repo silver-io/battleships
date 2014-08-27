@@ -1,17 +1,14 @@
 class Cell
 
 	def initialize
-		@has_ship = false
+		@ship = false
 		@hit = false
 	end
 
-	def has_ship?
-		@has_ship
+	def ship
+		@ship
 	end
 
-	def has_ship!
-		@has_ship = true
-	end
 
 	def hit?
 		@hit
@@ -20,5 +17,10 @@ class Cell
 	def hit!
 		@hit = true
 	end
+
+	def set_ship(ship)
+		@ship = ship
+	end
+
 
 end

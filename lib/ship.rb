@@ -22,6 +22,8 @@ class Ship
 		@hitpoints == 0 
 	end
 
+
+
 	
 
 end

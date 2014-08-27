@@ -22,16 +22,22 @@ describe Game do
 
 	context "ships" do
 
-		it "should have a corresponding size" do
+		xit "should have a corresponding size" do
 			expect(game.ships[:patrol_boat]).to eq 2
 			expect(game.ships[:aircraft_carrier]).to eq 5
 		end
 
 		it "can be placed inside a cell" do
 			ship = Ship.new
-			game.place_ship(ship, :A1)
+			game.insert_ship_into_cell(ship, :A1)
 			expect(game.board[:A1].ship).to eq ship
 		end
+
+		xit "can be placed over several cells" do
+			ship = Ship.new
+			ga
+		end
+
 
 
 		xit "the place ship command should take a ship type, start co-ordinate, and direction" do

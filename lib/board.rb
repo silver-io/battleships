@@ -6,6 +6,7 @@ class Board < Hash # ensures Board is itself a type of Hash
 				coordinates = "#{letter}#{number}"
 				self[coordinates.to_sym] = Cell.new
 			end
+			
 		end
 		
 	end

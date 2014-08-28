@@ -14,13 +14,11 @@ class User
 	# HORIZONTAL = -> { coord.reverse.first.to_i }
 	# VERTICAL = -> { coord.first.to_i(27)-9 }
 
-
-
+	attr_accessor :name
 
 	def has_board?
 		@board != nil
 	end
-
 
 	def initialize
 		@board = Board.new

@@ -4,7 +4,8 @@ require 'cell'
 
 describe User do
 
-	let(:user) { User.new }
+	let(:user)    { User.new     }
+	
 
 	it 'should be able to create a board' do
 		user.create_board
@@ -31,26 +32,23 @@ describe User do
 
 	context "ships" do
 
-		xit "should have a corresponding size" do
-			expect(user.ships[:patrol_boat]).to eq 2
-			expect(user.ships[:aircraft_carrier]).to eq 5
+		let(:carrier) { double :ship, :length => 3 }
+
+		it 'can be placed on a cell' do
+			user.place(carrier, :A1, :A2, :A3)
+			expect(user.board[:A1].ship).to eq carrier
 		end
 
-		xit "can be placed inside a cell" do
-			ship = Ship.new
-			user.insert_ship_into_cell(ship, :A1)
-			expect(user.board[:A1].ship).to eq ship
-		end
 
 		xit "can be placed over several cells" do
-			ship = Ship.new
-			ga
+			#ship = Ship.new
+			#ga
 		end 
 
 		xit "the place ship command should take a ship type, start co-ordinate, and direction" do
 			end 
 
-		it "should be able to place a ship" do
+		xit "should be able to place a ship" do
 			user.place_ship(:patrol_boat, "A1", "vertical")
 			expect(board[:A1].ship).to eq true
 			

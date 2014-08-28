@@ -3,12 +3,27 @@ require 'ship'
 
 class User
 
-	def has_board?
-		@board != nil
-	end
+
+	# SHIP_TYPES = {:tiny => 1,
+	# :patrol_boat => 2,
+	# :destroyer => 3,
+	# :submarine => 3,
+	# :Battleship => 4,
+	# :aircraft_carrier => 5}
+
+	# HORIZONTAL = -> { coord.reverse.first.to_i }
+	# VERTICAL = -> { coord.first.to_i(27)-9 }
+
+	attr_accessor :name
+	attr_accessor :score
 
 	def initialize
 		@board = Board.new
+		@score = 5
+	end
+
+	def has_board?
+		@board != nil
 	end
 
 	def board

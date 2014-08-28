@@ -17,5 +17,11 @@ class Game
 		@player2
 	end
 
+	def get_name_player_1(user_input = gets.chomp)
+		player1.name = user_input
+	end
 
+	def get_name_player_2(user_input = gets.chomp)
+		player2.name = user_input
+	end
 end

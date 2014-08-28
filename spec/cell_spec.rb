@@ -22,12 +22,18 @@ describe Cell do
 	it "should know when the ship in the cell is sunk" do
 		cell.set_ship(destroyer)
 		3.times { cell.hit! }
-		expect(cell.ship_sunk?).to be true
+		expect(cell.is_ship_sunk?).to be true
 	end
 
 	it 'should not be sunk if not damaged' do 
 		cell.set_ship(destroyer)
-		expect(cell.ship_sunk?).to be false 
+		expect(cell.is_ship_sunk?).to be false 
+	end 
+
+	it '@ship should return ":sunk" if the ship sunk' do 
+		cell.set_ship(destroyer)
+		3.times { cell.hit! } 
+		expect(cell.sunk?).to eq :sunk 
 	end 
 	
 end

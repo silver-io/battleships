@@ -5,6 +5,7 @@ class Cell
 	def initialize
 		@ship = nil
 		@hit = false
+		@sunk = false 
 	end
 
 	def ship
@@ -28,9 +29,12 @@ class Cell
 		@ship = ship
 	end
 
-	def ship_sunk?
+	def is_ship_sunk?
 		@ship.sunk? 
 	end 
 
+	def sunk? 
+		@sunk = :sunk if is_ship_sunk? 
+	end
 
 end

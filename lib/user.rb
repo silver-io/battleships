@@ -3,24 +3,9 @@ require 'ship'
 
 class User
 
-
-	# SHIP_TYPES = {:tiny => 1,
-	# :patrol_boat => 2,
-	# :destroyer => 3,
-	# :submarine => 3,
-	# :Battleship => 4,
-	# :aircraft_carrier => 5}
-
-	# HORIZONTAL = -> { coord.reverse.first.to_i }
-	# VERTICAL = -> { coord.first.to_i(27)-9 }
-
-
-
-
 	def has_board?
 		@board != nil
 	end
-
 
 	def initialize
 		@board = Board.new
@@ -40,19 +25,40 @@ class User
 		@ship_coords.each { |coord| board[coord].set_ship(ship) }
 	end
 
-	#def check_for_ship(ship)
+	#ary_coord = coord.to_s.split(/\D/).drop(1)
 
 	def place_ship(ship, direction, coord)
-
-		ary_coord = coord.to_s.split(/\D/).drop(1)
-
-		ship.size.times do
-			@board[ary_coord.join.to_sym] = ship
-			ary_coord[1] += 1
+		if direction == "up" then
+			place_ship_down(ship, coord)
+		else 
+			place_ship_right(ship, coord)
 		end
-
-
 	end
+
+
+	def place_ship_right(ship, coord)
+
+		ary_coord = coord.to_s.split("")
+
+		ship.size.times {
+			@board[ary_coord.join.to_sym].set_ship(ship)
+			number_element = ary_coord[1].to_i
+			number_element += 1
+			ary_coord[1] = number_element }
+	end 
+
+	def place_ship_down(ship, coord)
+
+		ary_coord = coord.to_s.split("")
+
+			ship.size.times {
+			@board[ary_coord.join.to_sym].set_ship(ship)
+			number_element = ary_coord[0].to_i(27)+55
+			number_element += 1
+			ary_coord[0] = number_element.chr }
+	end 
+
+end
 
 
 
@@ -79,4 +85,3 @@ class User
 	# 
 
 	# end
-end

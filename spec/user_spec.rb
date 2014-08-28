@@ -46,8 +46,8 @@ describe User do
 
 		it 'knows where to place the ship given axis and starting cell' do
 			patrol_boat = Patrol_boat.new
-			user.place_ship(patrol_boat, "right", :A1)
-			expect(user.board[:A2].ship).to eq patrol_boat
+			user.place_ship(patrol_boat, "down", :A1)
+			expect(user.board[:B1].ship).to eq patrol_boat
 		end
 
 

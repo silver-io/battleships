@@ -54,6 +54,17 @@ describe User do
 			expect(user.board[:B1].ship).to eq patrol_boat
 		end
 
+		it 'knows it has been placed' do
+			patrol_boat = Patrol_boat.new
+			user.place_ship(patrol_boat, "down", :A1)
+			expect(patrol_boat).to be_placed
+		end
+
+		it 'the same ship can not be placed twice' do
+			patrol_boat = Patrol_boat.new
+			user.place_ship(patrol_boat, "down", :A1)
+			expect{(user.place_ship(patrol_boat, "down", :A1))}.to raise_error
+		end
 
 
 	end

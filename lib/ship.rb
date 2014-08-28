@@ -3,6 +3,7 @@ class Ship
 	def initialize(size)
 		@size = size 
 		@hitpoints = size 
+		@placed = false
 	end 
 
 	def size 
@@ -20,6 +21,14 @@ class Ship
 
 	def sunk? 
 		@hitpoints == 0 
+	end
+
+	def placed?
+		@placed
+	end
+
+	def place
+		@placed = true
 	end
 	
 end

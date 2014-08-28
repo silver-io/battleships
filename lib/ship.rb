@@ -61,10 +61,3 @@ end
 
 
 
-
-#SHIP_TYPES = {:tiny => 1,
-#	:patrol_boat => 2,
-#	:destroyer => 3,
-#	:submarine => 3,
-#	:Battleship => 4,
-#	:aircraft_carrier => 5}

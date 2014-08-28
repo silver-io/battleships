@@ -2,6 +2,7 @@ require 'cell'
 
 class User
 
+
 	# SHIP_TYPES = {:tiny => 1,
 	# :patrol_boat => 2,
 	# :destroyer => 3,
@@ -13,12 +14,10 @@ class User
 	VERTICAL = -> { coord.first.to_i(27)-9 }
 
 
-	def create_board
-		@has_board = true
-	end
+
 
 	def has_board?
-		@has_board
+		@board != nil
 	end
 
 
@@ -31,15 +30,16 @@ class User
 	end
 
 	def hit(cell)
-		# board -. cell number -. cel.hit = true
 		@board[cell].hit!
 	end
 
 	def place(ship, *coords)
 		@ship_coords = *coords
-		@ship_coords.each { |coord|
-		board[coord].set_ship(ship) }
+		raise "sorry" if @ship_coords.any? { |coord|  board[coord].has_ship? }
+		@ship_coords.each { |coord| board[coord].set_ship(ship) }
 	end
+
+
 
 	# def insert_ship_into_cell(ship, coordinate)
 	# 	@board[coordinate].set_ship(ship)

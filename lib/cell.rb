@@ -1,7 +1,7 @@
 class Cell
 
 	def initialize
-		@ship = false
+		@ship = nil
 		@hit = false
 	end
 
@@ -9,6 +9,9 @@ class Cell
 		@ship
 	end
 
+	def has_ship?
+		!@ship.nil?
+	end
 
 	def hit?
 		@hit

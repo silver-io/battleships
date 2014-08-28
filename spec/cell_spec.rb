@@ -5,7 +5,7 @@ describe Cell do
 	let(:cell) { Cell.new }
 	
 	it "should not have a ship by default" do
-		expect(cell.ship).to eq false
+		expect(cell.ship).to eq nil
 	end
 
 	it "should not have been hit by default" do

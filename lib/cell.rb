@@ -1,3 +1,5 @@
+require 'ship'
+
 class Cell
 
 	def initialize
@@ -19,11 +21,16 @@ class Cell
 
 	def hit!
 		@hit = true
+		@ship.hit! if @ship.nil? == false
 	end
 
 	def set_ship(ship)
 		@ship = ship
 	end
+
+	def ship_sunk?
+		@ship.sunk? 
+	end 
 
 
 end

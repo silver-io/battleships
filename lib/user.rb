@@ -15,13 +15,15 @@ class User
 	# VERTICAL = -> { coord.first.to_i(27)-9 }
 
 	attr_accessor :name
-
-	def has_board?
-		@board != nil
-	end
+	attr_accessor :score
 
 	def initialize
 		@board = Board.new
+		@score = 5
+	end
+
+	def has_board?
+		@board != nil
 	end
 
 	def board

@@ -8,10 +8,14 @@ describe User do
 	let(:user)    { User.new     }
 
 
-	context "input" do
+	context "input and initialization" do
 		
 		it 'should be initialized with a board' do
 			expect(user.board.class).to eq Board
+		end
+
+		it 'should keep track of how many ships it has left - 5 to start with' do
+			expect(user.score).to eq 5
 		end
 
 

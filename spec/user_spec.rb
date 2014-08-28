@@ -1,6 +1,7 @@
 require 'user'
 require 'board'
 require 'cell'
+require 'ship'
 
 describe User do
 
@@ -41,6 +42,12 @@ describe User do
 		it 'can not place a ship over another ship' do
 			user.place(carrier, :A1, :A2, :A3)
 			expect{user.place(carrier, :A3, :A4, :A5)}.to raise_error
+		end
+
+		it 'knows where to place the ship given axis and starting cell' do
+			patrol_boat = Patrol_boat.new
+			user.place_ship(patrol_boat, "right", :A1)
+			expect(user.board[:A2].ship).to eq patrol_boat
 		end
 
 

@@ -1,4 +1,6 @@
 require 'cell'
+require 'ship'
+require 'board'
 
 class User
 
@@ -10,8 +12,8 @@ class User
 	# :Battleship => 4,
 	# :aircraft_carrier => 5}
 
-	HORIZONTAL = -> { coord.reverse.first.to_i }
-	VERTICAL = -> { coord.first.to_i(27)-9 }
+	# HORIZONTAL = -> { coord.reverse.first.to_i }
+	# VERTICAL = -> { coord.first.to_i(27)-9 }
 
 
 
@@ -39,20 +41,43 @@ class User
 		@ship_coords.each { |coord| board[coord].set_ship(ship) }
 	end
 
+	#def check_for_ship(ship)
+
+	def place_ship(ship, direction, coord)
+
+		ary_coord = coord.to_s.split(/\D/).drop(1)
+
+		ship.size.times do
+			@board[ary_coord.join.to_sym] = ship
+			ary_coord[1] += 1
+		end
+
+
+	end
+
+
 
 
 	# def insert_ship_into_cell(ship, coordinate)
 	# 	@board[coordinate].set_ship(ship)
 	# end
 
-	# def place_ship(ship, coord, axis)
-	# 	raise "this is not an axis" if axis != "vertical" && "horizontal"
-	# 	coordinate = coord.chop.to_i 
-	# 	if axis == "vertical"
-	# 	else coordinate = coord.reverse.chop.to_i(27)-9 
-	# 	number = SHIP_TYPES[ship]
-	# 	ship = Ship.new 
-	# 	number.times { @board[(coordinate += 56).chr ].set_ship(ship) }
+	 # def orientation(ship, coord, axis)
+	 # 	raise "this is not an axis" if axis != "vertical" && "horizontal"
+		# if axis == "vertical"
+	 # 		then
+	 # 		@coordinate_letter = coord.chop.to_i(27)-9
+	 # 		else @coordinate_number = coord.reverse.chop.to_i
+	 # 		ship.size.times { @coordinate_number += 1; @coordinate_letter += 1; 
+	 # 		coordinates = "#{letter}#{number}".to_sym; 
+	 # 		raise "sorry" if @ship_coords.any? { |coord|  board[coord].has_ship? }
+		# 	ship_coords.each { |coord| board[coord].set_ship(ship) } }
+		# end
+
+
+
+	# 	
+	# 
 
 	# end
 end

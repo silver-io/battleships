@@ -1,6 +1,5 @@
 require 'cell'
 require 'ship'
-require 'board'
 
 class User
 

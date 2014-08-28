@@ -17,11 +17,13 @@ class Game
 		@player2
 	end
 
-	def get_name_player_1(user_input = gets.chomp)
-		player1.name = user_input
+	def get_name_player_1
+		puts "Player 1, what is your name?"
+		player1.name = $stdin.gets.chomp
 	end
 
-	def get_name_player_2(user_input = gets.chomp)
-		player2.name = user_input
+	def get_name_player_2
+		puts "Player 2, what is your name?"
+		player2.name = $stdin.gets.chomp
 	end
 end

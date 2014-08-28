@@ -1,4 +1,5 @@
 require 'game'
+require 'stringio'
 
 describe Game do
 
@@ -18,25 +19,18 @@ describe Game do
 	end
 
 	context 'player interaction' do
-		let(:user_input) { "Henry" }
 
-		it 'should ask player 1 for their name' do
-			expect(game.get_name_player_1(user_input)).to eq "Henry"
+		it 'should ask player 1 for their name and set it' do
+			expect(STDIN).to receive(:gets).and_return("Bob")
+			expect(game.get_name_player_1).to eq "Bob"
+			expect(game.player1.name).to eq "Bob"
 		end
 
-		it "should set player 1's name" do
-			game.get_name_player_1(user_input)
-			expect(game.player1.name).to eq "Henry"
-	end
-
-		it 'should ask player 2 for their name' do
-			expect(game.get_name_player_2(user_input)).to eq "Henry"
+		it 'should ask player 2 for their name and set it' do
+			expect(STDIN).to receive(:gets).and_return("Alice")
+			expect(game.get_name_player_2).to eq "Alice"
+			expect(game.player2.name).to eq "Alice"
 		end
-
-		it "should set player 2's name" do
-			game.get_name_player_2(user_input)
-			expect(game.player2.name).to eq "Henry"
-	end
 
 end
 

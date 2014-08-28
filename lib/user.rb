@@ -28,7 +28,7 @@ class User
 	#ary_coord = coord.to_s.split(/\D/).drop(1)
 
 	def place_ship(ship, direction, coord)
-		if direction == "up" then
+		if direction == "down" then
 			place_ship_down(ship, coord)
 		else 
 			place_ship_right(ship, coord)

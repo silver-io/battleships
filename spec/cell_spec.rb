@@ -33,7 +33,7 @@ describe Cell do
 	it '@ship should return ":sunk" if the ship sunk' do 
 		cell.set_ship(destroyer)
 		3.times { cell.hit! } 
-		expect(cell.sunk?).to eq :sunk 
+		expect(cell.sunk?).to eq true
 	end 
 	
 end

@@ -9,9 +9,9 @@ class User
 	def initialize
 		@board = Board.new
 		create_boats
+		@placed_ships = []
 		@score = @unplaced_ships.map { |ship| ship.hp }
 		@score = @score.inject {|sum, n| sum + n}
-		puts @score
 	end
 
 	def create_boats
@@ -31,13 +31,20 @@ class User
 		@board != nil
 	end
 
+	def calculate_score
+		@score = @placed_ships.map { |ship| ship.hp }
+		@score = @score.inject {|sum, n| sum + n}
+	end
+
 	def board
 		@board
 	end
 
 	def hit(cell)
 		@board[cell].hit!
+		calculate_score
 	end
+
 
 	# def place(ship, *coords)
 	# 	@ship_coords = *coords

@@ -34,7 +34,7 @@ class Cell
 	end 
 
 	def sunk? 
-		@sunk = :sunk if is_ship_sunk? 
+		@sunk = true if is_ship_sunk? 
 	end
 
 end

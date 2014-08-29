@@ -33,7 +33,6 @@ class User
 	def calculate_score
 		@score = @placed_ships.map { |ship| ship.hp }
 		@score = @score.inject {|sum, n| sum + n}
-		@s
 	end
 
 	def board
@@ -68,7 +67,7 @@ class User
 
 	def place_ship_right(ship, coord)
 
-		ary_coord = coord.to_s.split("")
+		ary_coord = coord.to_s.gsub(/10/, '0').split("")
 
 		ship.size.times {
 			@board[ary_coord.join.to_sym].set_ship(ship)

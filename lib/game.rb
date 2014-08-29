@@ -1,6 +1,7 @@
 require 'cell'
 require 'board'
 require 'user'
+require 'ship'
 
 class Game
 
@@ -20,5 +21,11 @@ class Game
 		puts "Player 2, what is your name?"
 		player2.name = $stdin.gets.chomp
 	end
+
+	def player1_place_ships
+		STDOUT.puts "Player 1, place your ships."
+	end
+
+
 
 end

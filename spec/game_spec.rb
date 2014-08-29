@@ -36,8 +36,10 @@ end
 
 	context 'placing ships' do
 		it 'should ask player 1 to place their ships' do
-			expect(game.player1).to receive(:place_ships)
-			game.player1.place_ships # gets player to place all of their ships
+			game.player1_place_ships
+			allow(STDOUT).to receive(:puts).and_return("Player 1, place your ships.")
+			# expect(game.player1).to receive(:place_ships)
+			# game.player1.place_ships # gets player to place all of their ships
 		end
 
 		it 'should ask player 2 to place their ships' do

@@ -21,14 +21,14 @@ describe Ship do
 		end 
 
 		it 'has hitpoints equal to their size' do 
-			expect(ship.hp?).to eq 20
-			expect(patrol_boat.hp?).to eq 2
-			expect(aircraft_carrier.hp?).to eq 5
+			expect(ship.hp).to eq 20
+			expect(patrol_boat.hp).to eq 2
+			expect(aircraft_carrier.hp).to eq 5
 		end 
 
 		it 'can lose a hitpoint when hit' do 
 			ship.hit! 
-			expect(ship.hp?).to eq 19 
+			expect(ship.hp).to eq 19 
 		end 
 
 		it 'sinks if out of hitpoints' do 

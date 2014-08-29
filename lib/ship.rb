@@ -10,7 +10,7 @@ class Ship
 		@size 
 	end 
 
-	def hp? 
+	def hp
 		@hitpoints 
 	end 
 

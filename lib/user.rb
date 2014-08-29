@@ -8,7 +8,23 @@ class User
 
 	def initialize
 		@board = Board.new
-		@score = 5
+		create_boats
+		@score = @unplaced_ships.map { |ship| ship.hp }
+		@score = @score.inject {|sum, n| sum + n}
+		puts @score
+	end
+
+	def create_boats
+		@destroyer = Destroyer.new
+		@fisherboat = Fisherboat.new
+		@patrol_boat = Patrol_boat.new
+		@battleship = Battleship.new
+		@aircraft_carrier = Aircraft_carrier.new
+		@unplaced_ships = [@destroyer,	
+											@fisherboat,
+											@patrol_boat,
+											@battleship,
+											@aircraft_carrier]
 	end
 
 	def has_board?
@@ -23,11 +39,11 @@ class User
 		@board[cell].hit!
 	end
 
-	def place(ship, *coords)
-		@ship_coords = *coords
-		raise "sorry" if @ship_coords.any? { |coord|  board[coord].has_ship? }
-		@ship_coords.each { |coord| board[coord].set_ship(ship) }
-	end
+	# def place(ship, *coords)
+	# 	@ship_coords = *coords
+	# 	raise "sorry" if @ship_coords.any? { |coord|  board[coord].has_ship? }
+	# 	@ship_coords.each { |coord| board[coord].set_ship(ship) }
+	# end
 
 	def place_ship(ship, direction, coord)
 		raise 'Ship already placed' if ship.placed? == true
@@ -37,6 +53,7 @@ class User
 			place_ship_right(ship, coord)
 		end
 		ship.place
+		@unplaced_ships.pop
 	end
 
 

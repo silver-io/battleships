@@ -1,10 +1,9 @@
-require 'cell'
-require 'ship'
-
 class User
 
 	attr_accessor :name
 	attr_accessor :score
+
+	attr_accessor :destroyer, :fisherboat, :patrol_boat, :battleship, :aircraft_carrier
 
 	def initialize
 		@board = Board.new
@@ -34,6 +33,7 @@ class User
 	def calculate_score
 		@score = @placed_ships.map { |ship| ship.hp }
 		@score = @score.inject {|sum, n| sum + n}
+		@s
 	end
 
 	def board
@@ -60,7 +60,9 @@ class User
 			place_ship_right(ship, coord)
 		end
 		ship.place
-		@unplaced_ships.pop
+		@placed_ships << ship
+		@unplaced_ships.delete(ship)
+		calculate_score
 	end
 
 

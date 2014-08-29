@@ -4,6 +4,7 @@ class Ship
 		@size = size 
 		@hitpoints = size 
 		@placed = false
+		@sunk = false
 	end 
 
 	def size 
@@ -16,7 +17,9 @@ class Ship
 
 	def hit! 
 		raise "this ship already sunk" if @hitpoints == 0 
-		@hitpoints -= 1 
+		@hitpoints -= 1
+		if @hitpoints == 0 then @sunk = true
+		end
 	end 
 
 	def sunk? 

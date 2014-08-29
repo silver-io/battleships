@@ -1,7 +1,7 @@
-require 'cell'
-require 'board'
-require 'user'
-require 'ship'
+require_relative '../lib/cell.rb'
+require_relative '../lib/board.rb'
+require_relative '../lib/user.rb'
+require_relative '../lib/ship.rb'
 
 class Game
 

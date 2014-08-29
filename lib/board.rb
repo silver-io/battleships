@@ -1,5 +1,3 @@
-require 'cell'
-
 class Board < Hash # ensures Board is itself a type of Hash
 
 	def initialize

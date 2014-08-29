@@ -1,11 +1,9 @@
-require 'ship'
-
 class Cell
 
 	def initialize
 		@ship = nil
 		@hit = false
-		@sunk = false 
+	
 	end
 
 	def ship
@@ -21,7 +19,8 @@ class Cell
 	end
 
 	def hit!
-		@hit = true
+		raise "This cell has already been hit" if @hit == true
+		@hit = true 
 		@ship.hit! if @ship.nil? == false
 	end
 

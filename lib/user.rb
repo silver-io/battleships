@@ -7,6 +7,7 @@ class User
 
 	def initialize
 		@board = Board.new
+		@trackingboard = TrackingBoard.new
 		create_boats
 		@placed_ships = []
 		@score = @unplaced_ships.map { |ship| ship.hp }

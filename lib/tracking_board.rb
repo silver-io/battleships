@@ -1,0 +1,3 @@
+class TrackingBoard < Board
+
+end
